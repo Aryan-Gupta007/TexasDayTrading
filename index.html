@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Texas Day Trading | UT Austin</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #bf5700 0%, #333f48 100%);
+            color: white;
+            padding: 2rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #bf5700 0%, #333f48 100%);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #bf5700;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #bf5700;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .about-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .about-card h3 {
+            color: #bf5700;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .learning-path {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 3rem;
+            border-radius: 10px;
+            margin: 3rem 0;
+        }
+
+        .learning-path h3 {
+            color: #bf5700;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+
+        .path-steps {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .step {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #bf5700;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .step h4 {
+            color: #333f48;
+            margin-bottom: 0.5rem;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .team-member {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+
+        .member-photo {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #bf5700 0%, #333f48 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        .member-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .member-info {
+            padding: 1.5rem;
+        }
+
+        .member-info h3 {
+            color: #bf5700;
+            margin-bottom: 0.5rem;
+        }
+
+        .member-info .role {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .benefits {
+            background: #333f48;
+            color: white;
+            padding: 4rem 2rem;
+        }
+
+        .benefits-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .benefit-item {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .contact-info {
+            margin-top: 1rem;
+        }
+
+        .contact-info a {
+            color: #bf5700;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Texas Day Trading</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <h1>Texas Day Trading</h1>
+        <p>UT Austin's Premier Day Trading & Investment Education Club</p>
+        <a href="#contact" class="cta-button">Join Our Community</a>
+    </section>
+
+    <section id="about" class="container">
+        <h2 class="section-title">What We Do</h2>
+        <div class="about-grid">
+            <div class="about-card">
+                <h3>📈 Learn Day Trading</h3>
+                <p>Master the fundamentals of day trading through hands-on workshops, real-time market analysis, and mentorship from experienced traders.</p>
+            </div>
+            <div class="about-card">
+                <h3>💼 Build Your Portfolio</h3>
+                <p>Develop practical investment strategies and learn how to manage risk while building a diversified portfolio that aligns with your goals.</p>
+            </div>
+            <div class="about-card">
+                <h3>🤝 Network & Grow</h3>
+                <p>Connect with like-minded students, share trading insights, and build lasting relationships in a supportive community of aspiring traders.</p>
+            </div>
+        </div>
+
+        <div class="learning-path">
+            <h3>What You'll Learn</h3>
+            <div class="path-steps">
+                <div class="step">
+                    <h4>Market Fundamentals</h4>
+                    <p>Gain a solid understanding of how financial markets work, trading terminology, different asset classes, and the key players that move markets. Build the foundational knowledge every successful trader needs.</p>
+                </div>
+                <div class="step">
+                    <h4>Technical Analysis</h4>
+                    <p>Master the art of reading charts and identifying patterns. Learn to use indicators, recognize trends, and determine optimal entry and exit points for trades using proven technical analysis methods.</p>
+                </div>
+                <div class="step">
+                    <h4>Risk Management</h4>
+                    <p>Discover how to protect your capital through proper position sizing, stop-loss placement, and portfolio diversification. Learn the difference between smart risk-taking and gambling.</p>
+                </div>
+                <div class="step">
+                    <h4>Trading Psychology</h4>
+                    <p>Develop the mental discipline and emotional control that separates successful traders from the rest. Understand how to manage fear, greed, and maintain consistency in your decision-making.</p>
+                </div>
+                <div class="step">
+                    <h4>Strategy Development</h4>
+                    <p>Explore various trading styles including scalping, momentum trading, and swing trading. Learn how to develop, backtest, and refine your own strategies that match your personality and goals.</p>
+                </div>
+                <div class="step">
+                    <h4>Real-World Application</h4>
+                    <p>Put theory into practice with paper trading simulations, live market analysis sessions, and feedback from experienced mentors. Learn from both successes and mistakes in a risk-free environment.</p>
+                </div>
+                <div class="step">
+                    <h4>Advanced Topics</h4>
+                    <p>Dive deeper into market dynamics, algorithmic trading concepts, options strategies, and advanced technical indicators. Stay current with market trends through guest speakers and industry insights.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="about-card" style="margin-top: 2rem;">
+            <h3>🎯 Our Mission</h3>
+            <p>Texas Day Trading is dedicated to empowering UT Austin students with the knowledge, skills, and confidence to navigate financial markets successfully. We believe in learning by doing, and our curriculum combines theoretical foundations with practical, hands-on experience. Whether you're a complete beginner or have some trading experience, our club provides a structured path to help you achieve your financial goals while building a supportive community of fellow traders.</p>
+        </div>
+    </section>
+
+    <section class="benefits">
+        <h2 class="section-title" style="color: white;">Member Benefits</h2>
+        <div class="benefits-grid">
+            <div class="benefit-item">
+                <div class="benefit-icon">📚</div>
+                <h3>Educational Resources</h3>
+                <p>Access to exclusive trading materials, tutorials, and market research</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">🎓</div>
+                <h3>Weekly Workshops</h3>
+                <p>Interactive sessions covering strategies, analysis, and market trends</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">💻</div>
+                <h3>Trading Simulators</h3>
+                <p>Practice with paper trading accounts before risking real capital</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">🎤</div>
+                <h3>Guest Speakers</h3>
+                <p>Learn from professional traders and industry experts</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="container">
+        <h2 class="section-title">Meet Our Team</h2>
+        <div class="team-grid">
+            <div class="team-member">
+                <div class="member-photo">
+                    <img src="https://i.ibb.co/sv5xgFNR/IMG-3170.jpg" alt="Aryan Gupta">
+                </div>
+                <div class="member-info">
+                    <h3>Aryan Gupta</h3>
+                    <p class="role">President</p>
+                    <p>Brief bio about the president and their trading experience...</p>
+                </div>
+            </div>
+            <div class="team-member">
+                <div class="member-photo">👤</div>
+                <div class="member-info">
+                    <h3>Jayanth Annabhimoju</h3>
+                    <p class="role">Vice President</p>
+                    <p>Brief bio about the vice president and their role in the club...</p>
+                </div>
+            </div>
+            <div class="team-member">
+                <div class="member-photo">👤</div>
+                <div class="member-info">
+                    <h3>Saivedhik Puram</h3>
+                    <p class="role">Investment Director</p>
+                    <p>Brief bio about the investment director and their expertise...</p>
+                </div>
+            </div>
+            <div class="team-member">
+                <div class="member-photo">👤</div>
+                <div class="member-info">
+                    <h3>Srikrishna Chiripurapu</h3>
+                    <p class="role">Portfolio Manager</p>
+                    <p>Brief bio about the portfolio manager and their responsibilities...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <h3>Get In Touch</h3>
+        <div class="contact-info">
+            <p>Email: <a href="mailto:texasdaytrading@utexas.edu">texasdaytrading@utexas.edu</a></p>
+            <p>Follow us on social media to stay updated!</p>
+            <p style="margin-top: 2rem; opacity: 0.7;">© 2025 Texas Day Trading Club | The University of Texas at Austin</p>
+        </div>
+    </footer>
+</body>
+</html>
